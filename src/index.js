@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from "react-router-dom";
+import {ChakraProvider} from '@chakra-ui/react'
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from "./App";
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+import {createStore} from "redux";
+import stores from './component/store/store';
+import {composeWithDevTools} from "redux-devtools-extension";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const store = createStore(
+    stores,
+    composeWithDevTools(),
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <ChakraProvider>
+                <BrowserRouter>
+                    <App/>
+                </BrowserRouter>
+            </ChakraProvider>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
+
