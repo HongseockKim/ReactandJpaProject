@@ -6,5 +6,6 @@ import lombok.Data;
 public class TodoDTO {
     private Long id;
     private String todo;
+    private Boolean todoCheck;
     private String todoCn;
 }

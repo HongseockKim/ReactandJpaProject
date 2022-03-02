@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from "styled-components";
 import {Text} from "@chakra-ui/react";
+import {FetchApi} from "../common/FetchApi";
+
 
 const TodoList = () => {
     const Todo = styled.div`
@@ -21,6 +23,13 @@ const TodoList = () => {
         }
       }
     `;
+
+    useEffect(()=>{
+        FetchApi.getTodo().then(result => {
+            console.log(result);
+        })
+        // FetchApi.registerTodo();
+    },[])
     return (
         <Todo>
             <ul className="notice-todo">

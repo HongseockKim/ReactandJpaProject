@@ -5,7 +5,6 @@ import App from './App';
 import {BrowserRouter, Routes, Route,} from "react-router-dom";
 import {createStore} from "redux";
 import Reducer from './project/store/Store';
-import {getTodo} from "./project/action/Action";
 
 const store = createStore(Reducer)
 

@@ -11,16 +11,26 @@ public class TodoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String todo;
+    private Boolean todoCheck;
     private String todoCn;
 
 
     public TodoEntity() {
     }
 
-    public TodoEntity(long id, String todo, String todoCn) {
+    public TodoEntity(long id, String todo, Boolean todoCheck, String todoCn) {
         this.id = id;
         this.todo = todo;
+        this.todoCheck = todoCheck;
         this.todoCn = todoCn;
+    }
+
+    public Boolean getTodoCheck() {
+        return todoCheck;
+    }
+
+    public void setTodoCheck(Boolean todoCheck) {
+        this.todoCheck = todoCheck;
     }
 
     public long getId() {
